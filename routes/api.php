@@ -16,7 +16,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::post('/posts', [PostController::class, 'store']);
-Route::patch('/posts/{id}', [PostController::class, 'update']);
+Route::put('/posts/{id}', [PostController::class, 'update']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 // Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
 Route::middleware('auth:sanctum')->group( function() {
@@ -25,6 +25,6 @@ Route::middleware('auth:sanctum')->group( function() {
     Route::get('/users/{id}', [UserController::class, 'show']);
 
 });
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');

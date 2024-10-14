@@ -31,7 +31,7 @@ class PostController extends ResponseController
     public function store(Request $request) : JsonResponse {
         try {
             $validator = Validator::make($request->all(), [
-                'user_id' => 'required|exists:users,id',
+                'user_id' => 'required',
                 'title' => 'required',
                 'content' => 'required',
                 // 'c_password' => 'required|same:password',
